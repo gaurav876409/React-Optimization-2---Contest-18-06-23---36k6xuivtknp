@@ -32,7 +32,7 @@ const OptimizeTheOperation = ({ onClick }) => {
       <div className="width">
         Result of expensive operation:
         <ul>
-          {prime.map((item, index) => (
+          {prime().map((item, index) => (
             <li key={index}>{item}</li>
           ))}
         </ul>
