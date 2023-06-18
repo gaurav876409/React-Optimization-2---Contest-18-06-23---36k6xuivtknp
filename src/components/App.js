@@ -1,7 +1,7 @@
-import React, { Profiler, useMemo } from "react";
+import React, { Profiler, useMemo, useCallback } from "react";
 import { useState } from "react";
 import "../styles/App.css";
-import primeNumber from "../function";
+import calculateAllPrimes from "../function";
 
 const App = () => {
   return <OptimizeTheOperation />;
@@ -10,7 +10,8 @@ const App = () => {
 const OptimizeTheOperation = ({ onClick }) => {
   const [number, setNumber] = useState(10000);
 
-  const prime = primeNumber(number);
+  // const prime = primeNumber(number);
+  const prime = useCallback(() => calculateAllPrimes(number), [number]);
 
   const submitHandler = (event) => {
     event.preventDefault();
